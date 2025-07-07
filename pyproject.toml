@@ -1,0 +1,36 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "SignalPeak"
+version = "0.0.1"
+description = "Forecast time-to-first-peak in noisy signals (Python CLI, DDD/SOLID)"
+authors = ["Yasin Mohammadi Yasinmhmdk@gmail.com"]
+license = "MIT"
+readme = "README.md"
+packages = [
+  { include = "signalpeak"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+numpy = "^2.2.5"
+scipy = "^1.15.3"
+pandas = "^2.2.3"
+matplotlib = "^3.10.0"
+
+[tool.poetry.scripts]
+# CLI entry-point: `signalpeak` will invoke the `main()` in our module
+signalpeak = "signalpeak.cli.main:main"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0"
+flake8 = "^5.0"
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+
+[tool.isort]
+profile = "black"
